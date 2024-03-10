@@ -1,18 +1,19 @@
 'use client'
-import { useLayoutEffect } from "react";
-import { useRouter } from "next/navigation";
-import useAuthContext from "@/hooks/useUser";
+import { useEffect } from "react";
+import { useContext } from "react";
+import useUser from "@/hooks/useUser";
 import { redirect } from 'next/navigation';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user } = useAuthContext();
+  const { user, isLoading } = useUser();
 
-  useLayoutEffect(() => {
-    const isAuth = user;
-    if (!isAuth) {
-      redirect("/login")
+
+  useEffect(() => {
+    if (!isLoading && user === null) {
+      // Solo redirige si isLoading es false y user es null
+      redirect("/login");
     }
-  }, [user]);
+  }, [user, isLoading]);
 
   return <>{children}</>;
 }
