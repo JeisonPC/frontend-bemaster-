@@ -1,0 +1,50 @@
+.card {
+  // Dimensiones de la tarjeta
+  width: 300px;
+  height: auto;
+  padding: 2em;
+  border-radius: 16px;
+  backdrop-filter: blur(2px);
+  background: rgb(1 0 0 / 80%);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.25); // Borde sutil para mejorar el efecto de 'glass'
+
+  // Sombra suave
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  // Ajustes de tipografía
+  color: #ffffff;
+
+  // Contenido interno centrado
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  // Estilización adicional para los botones y entradas
+  input {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.25); // Borde sutil para elementos interiores
+
+    // Sombra suave para el botón/input
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.1), inset 0 -2px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  
+
+
+
+  // Un pequeño efecto de transición para cuando se interactúa con los inputs/botones
+  input:focus {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
