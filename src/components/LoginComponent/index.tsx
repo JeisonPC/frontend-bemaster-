@@ -12,7 +12,7 @@ type Inputs = {
 };
 
 function LoginComponent() {
-  const [unAuthorized, setUnAuthorized] = useState<boolean | null>(false);
+  const [unAuthorized, setUnAuthorized] = useState<boolean | null>(null);
   const {
     register,
     handleSubmit,
@@ -44,6 +44,8 @@ function LoginComponent() {
     }
     if (res.status === 401) {
       setUnAuthorized(true);
+    } else if (res.status === 200) {
+      setUnAuthorized(false);
     }
   });
 
@@ -108,6 +110,7 @@ function LoginComponent() {
           </label>
         </div>
         <div className="mb-5">
+        {unAuthorized == false ? ( <span className={`text-green-500	font-semibold`}>¡Genial!, Ya iniciaste sesión, ya puedes ingresar al dashboard.</span>) : null}
         {unAuthorized ? ( <span className={`font-semibold ${style.errorMessage}`}>Lo siento, los datos ingresados no están en nuestro sistema.</span>) : null}
         </div>
         <button

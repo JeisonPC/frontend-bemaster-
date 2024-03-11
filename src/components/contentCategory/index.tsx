@@ -45,10 +45,10 @@ function ContentCategory({
         {cardCategorySelected?.id && (
           <motion.div
             layoutId={cardCategorySelected?.id}
-            className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex bg-black		opacity-5"
+            className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full flex"
             id="default-modal"
             aria-hidden="true"
-            style={{ opacity: 0.8 }}
+            style={{ background: 'rgba(0, 0, 0, .5)' }}
           >
             <motion.div className="relative p-4 w-full max-w-2xl max-h-full">
               <motion.div className="relative bg-white rounded-lg shadow dark:bg-gray-800">
@@ -68,7 +68,7 @@ function ContentCategory({
                     <motion.div key={c.id} className="p-4 md:p-5 space-y-4">
                       <motion.a
                         className="hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white p-4 rounded flex justify-between	"
-                        href={`dashboard/categories/${c.id}`}
+                        href={`dashboard/categoria/${c.id}`}
                       >
                         <motion.span>{c.name}</motion.span>
                         <motion.span>{c.description}</motion.span>
@@ -76,21 +76,14 @@ function ContentCategory({
                     </motion.div>
                   ))
                 ) : (
-                  <p>No content found for this category.</p>
+                  <p>Contenido Cargando...</p>
                 )}
               </motion.div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-      {content ? (
-        <div>
-          <h3>{content.name}</h3>
-          <p>{content.description}</p>
-        </div>
-      ) : (
-        <p>No content found for this category.</p>
-      )}
+
     </div>
   );
 }

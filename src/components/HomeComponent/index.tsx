@@ -38,12 +38,13 @@ function Home() {
                 className="rounded-lg flex items-center justify-center h-24 bg-gray-50 dark:bg-gray-800"
                 data-modal-target="default-modal"
                 data-modal-toggle="default-modal"
+                style={{ cursor: "pointer" }}
               >
                 <motion.h2>{category.name}</motion.h2>
               </motion.div>
             ) : null
           )
-        : "Loading"}
+        : <h2 className="font-bold	">Loading...</h2> }
         <ContentCategory
           cardCategorySelected={selectedCategory}
           onUpdateSelectedCategory={updateSelectedCategory}
